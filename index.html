@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="style.css" charset="utf-8" type="text/css">
+	<script src="sha1.js" charset="utf-8"></script>
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js" charset="utf-8"></script>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js" charset="utf-8"></script>
+	<script src="client.js" charset="utf-8"></script>
+	<script src="elemEvents.js" charset="utf-8"></script>
+	<title>pipe</title>
+</head>
+
+<body onload="window.moveTo(0,0); window.resizeTo(screen.availWidth,screen.availHeight);">
+	<input type="text" id="inputbox" style="opacity: 0; position: absolute" />
+	<div id="signUp">
+		Sign Up
+	</div>
+	<div id="chanSwitchInterface">
+		<div id="title">
+			Change the Channel
+		</div>
+		<div>
+			<input id="textBox" type="text">
+			<button type="submit" id="submit">Go</button>
+		</div>
+	</div>
+	<div id="title">
+		<div id="chanIndicator"></div>
+		<div id="chanHeader"></div>
+		Pipe.
+		<div id="subtitle">
+			Don't wait to talk.
+		</div>
+	</div>
+	<div id="userList"></div>
+	<div id="clients"></div>
+</body>
+
+</html>

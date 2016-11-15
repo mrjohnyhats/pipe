@@ -1,0 +1,25 @@
+<div id="chanSwitchConfPopup" class="popup">
+	<p>press any key to continue to continue to channel</p>
+	<script>
+		$("#chanSwitchConfPopup").focus();
+		$("#chanSwitchConfPopup").on("blur", function(){
+			$("#chanSwitchConfPopup").focus();
+		});
+		var keyPressedDown = false;
+		$(document).one("keydown", function(){
+			keyPressedDown = true;
+		});
+		$(document).one("keypress", function(){
+			if(keyPressedDown){
+				socket.emit("chanSwitchConfirmed");
+				chanChosen = true;
+				$(document).one("keyup", function(){
+					talking = true;
+					removeChanConfPopup();	
+					$("#chanSwitchConfPopup").unbind("blur");
+					$("#inputbox").focus();
+				});
+			}
+		});
+	</script>
+</div>

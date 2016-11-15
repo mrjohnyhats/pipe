@@ -1,0 +1,46 @@
+<div id="signUpPopup" class="popup">
+	<center>
+		<div id="container" onsubmit="return handleSignUpSubmittion()">
+			<p>Username</p>
+			<input id="username">
+			<br>
+			<p>Password</p>
+			<input id="password" type="password">
+			<button id="submit">Done</button>
+		</div>
+	</center>
+	<script type="text/javascript">
+		$("#signUpPopup #container *").on("keypress", function(e){
+			if(e.keyCode == 13){
+				$("#signUpPopup #submit").trigger("click");
+			}
+		});
+
+		$("#signUpPopup #submit").one("click", function(){
+			var username = $("#signUpPopup #username").val().trim();
+			var password = $("#signUpPopup #password").val();
+
+			if(verifyUsernameAndThrowErr(username) && verifyPasswordAndThrowErr(password)){
+				unbindPopUpListeners();
+				regUser(username, password);
+				talking = true;
+				removeSignUpPopup();
+			}
+		});
+
+		$(document).on("click", function(event){
+			var elemUnderCursor = $(getElemUnderCursor(event));
+			console.log(elemUnderCursor);
+
+			if(!$("#signUpPopup").has(elemUnderCursor).length){
+				unbindPopUpListeners();
+				removeSignUpPopup();
+			}
+		});
+
+		function unbindPopUpListeners(){
+			$(document).unbind("click");
+			$("#signUpPopup #container *").unbind("keypress");
+		}
+	</script>
+</div>

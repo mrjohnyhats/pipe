@@ -1,0 +1,15 @@
+
+<div id="chanSwitchPrompt" class="popup">
+	<center>
+		<p>Switch to your default Channel </p>
+        <div id="opts">
+          <button id="yes">Yes</button>
+          <button id="no">No</button>
+        </div>
+	</center>
+	<script type="text/javascript">
+		$("#yes").click(function({
+			sendChanSwitch(me.defaultChanName);
+		}))
+	</script>
+</div>
